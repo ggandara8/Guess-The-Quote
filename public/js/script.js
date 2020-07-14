@@ -7,13 +7,16 @@ const array = [1, 2, 3];
 let shuffled = array.map((a) => [Math.random(), a]).sort((a, b) => a[0] - b[0]).map((a) => a[1]);
 
 $(".submit").hide();
-
+$(".form-check").hide();
+$(".next").hide();
 $(".start").on("click", () => {
-  document.getElementById("after_start").style.visibility = "visible"
   quotes();
   randomNames();
   randomNames2();
+  $(".form-check").show();
   $(".start").hide();
+  $(".rules").hide();
+  $(".next").show();
   console.log(options);
 });
 
@@ -43,7 +46,6 @@ $(".next").on("click", () => {
     $(".next").hide();
     $(".submit").show();
   };
-  reset();
   gif();
 });
 
@@ -69,7 +71,7 @@ function randomNames2() {
   });
 }
 
-const GIFqueryURL = "https://api.giphy.com/v1/gifs/random?api_key=jDph2wCrpEWe3xZB3eIDrwmwI8EcicfZ&tag=who%20said%20that&rating=g"
+const GIFqueryURL = "https://api.giphy.com/v1/gifs/random?api_key=jDph2wCrpEWe3xZB3eIDrwmwI8EcicfZ&tag=quote%20who%20said&rating=g"
 
 function gif() {
   $.ajax({
@@ -79,19 +81,7 @@ function gif() {
     let imageUrl = res.data.image_original_url;
     let image = $("<img>");
 
-    image.attr("src", imageUrl);
+    image.attr("src", imageUrl).attr("width", "200").attr("height", "200");
     $("#images").html(image);
   });
-}
-
-$(".help").on("click", () => {
-  document.getElementById("exampleRadios3").style.visibility = "hidden"
-});
-
-function reset() {
-  document.getElementById("exampleRadios3").style.visibility = "visible"
-}
-// testing submit function, won't use alert
-function submit() {
-  alert("Your score is: ")
 }
