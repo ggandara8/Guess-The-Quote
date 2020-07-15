@@ -18,6 +18,7 @@ $(".start").on("click", () => {
   $(".rules").hide();
   $(".next").show();
   console.log(options);
+  countDown();
 });
 
 function quotes() {
@@ -36,6 +37,9 @@ function quotes() {
 }
 
 $(".next").on("click", () => {
+  nextquestion()
+});
+function nextquestion() {
   options = [{}];
   Quizcount++;
   shuffled = array.map((a) => [Math.random(), a]).sort((a, b) => a[0] - b[0]).map((a) => a[1]);
@@ -47,8 +51,8 @@ $(".next").on("click", () => {
     $(".submit").show();
   };
   gif();
-});
-
+  countDown();
+}
 function randomNames() {
   $.ajax({
     url: queryURL,
@@ -84,4 +88,20 @@ function gif() {
     image.attr("src", imageUrl).attr("width", "200").attr("height", "200");
     $("#images").html(image);
   });
+}
+
+// timer
+function countDown() {
+
+  var count = 5;
+
+  var counter = setInterval(timer, 1000);
+  function timer() {
+    count -= 1;
+    if (count === 0) {
+      clearInterval(counter);
+      nextquestion();
+    }
+    document.getElementById("timer").innerHTML = count + " secs";
+  }
 }
