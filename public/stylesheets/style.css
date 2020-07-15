@@ -36,10 +36,16 @@ body{
 
 .title{
   color: #070b4d;
-  font-family: 'Grenze Gotisch', cursive;
+  font-family: 'Nunito', sans-serif;
   font-size: 48px;
   letter-spacing: 5px;
 }
+
+.rules{
+font-family: 'Nunito', sans-serif;
+text-align: initial;
+}
+
 header{
   text-align: center;
   background-image: linear-gradient(yellow, #F27405,#84BFA4);
@@ -59,7 +65,7 @@ header{
   text-align: center;
   color: white;
   font-size: 20px;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Nunito', sans-serif;
   box-shadow:  10px 12px 10px #E3916B;
 }
 
@@ -74,7 +80,7 @@ color:#1b6e83;
   .header{
     text-align: center;
     background-image: linear-gradient(yellow, #F27405,#84BFA4);
-    font-family: ‘Noto Sans’, sans-serif;
+    font-family: 'Nunito', sans-serif;
     max-width: 100%;
     }
   .container{
@@ -87,7 +93,11 @@ color:#1b6e83;
     text-align: center;
     color: white;
     font-size: 14px;
-    font-family: ‘Noto Sans’, sans-serif;
+    font-family: 'Nunito', sans-serif;
     box-shadow:  10px 12px 10px #E3916B;
   }
+}
+
+.login{
+  font-family: 'Nunito', sans-serif;
 }
