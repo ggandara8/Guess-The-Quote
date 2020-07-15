@@ -6,7 +6,12 @@ form.signup,
 form.login {
   margin-top: 50px;
 } */
-
+.time{
+  position: fixed;
+  top: 75px;
+  right: 75px;
+  font-size: 20px;
+}
 .start{
   background-color: aquamarine;
   color: #010440;
@@ -73,6 +78,12 @@ label:hover{
 color:#1b6e83;
 }
 
+.gif{
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+}
+
 @media screen and (max-width: 480px) {
   body{
     background:linear-gradient(#84BFA4,#248EA6);
@@ -82,6 +93,15 @@ color:#1b6e83;
     background-image: linear-gradient(yellow, #F27405,#84BFA4);
     font-family: 'Nunito', sans-serif;
     max-width: 100%;
+    }
+    .title{
+      color: #070b4d;
+      font-family: 'Nunito', sans-serif;
+      font-size: 36px;
+      letter-spacing: 5px;
+    }
+    .rules{
+      font-size: 20px;
     }
   .container{
     background-color: #010440;
