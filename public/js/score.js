@@ -4,8 +4,6 @@ $(document).ready(() => {
   });
   let user = JSON.parse(localStorage.getItem("user"));
   let id = user.id;
-  console.log(user);
-  console.log(id);
   $.get("/api/score/" + id).then(data => {
     console.log(data);
     let scoreid;
@@ -14,7 +12,6 @@ $(document).ready(() => {
       scoreid = data[i].score; // all user scores
       arr.push(data[i].score); // pushing user scores to arr 
     }
-    console.log("Arr: " + arr);
     let latestScore = scoreid; // users latest score
     let maxScore = Math.max(...arr); // grabs user highest score from array
     $(".finalScore").text(`Your score is: ${latestScore}pts`);

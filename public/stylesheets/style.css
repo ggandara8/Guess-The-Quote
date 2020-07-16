@@ -14,11 +14,11 @@ color: #213440;
 }
 
 .container {
-  margin-top: 20px;
+  margin-top: 30px;
   padding: 20px;
   text-align: center;
-  background-color: #ffffff;
-  border: 1px solid black;
+  background-color: #fff;
+  box-shadow: -4px -4px 8px gray, 4px 4px 8px black;
   opacity: 0.9;
   border-radius: 10px;
 }
@@ -41,4 +41,22 @@ label:hover{
 
 .navbar {
   background-color: transparent !important;
+}
+ol{
+  text-align: left;
+}
+.rules {
+  text-align: left;
+  padding-bottom: 10px;
+}
+.navbar{
+  text-align: center;
+}
+.correct{
+  color: green;
+  font-size: 25px;
+}
+.incorrect{
+  color: red;
+  font-size: 25px;
 }
