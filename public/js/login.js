@@ -29,7 +29,6 @@ $(document).ready(() => {
       password: password
     })
       .then(data => {
-        console.log(data);
         localStorage.setItem("user", JSON.stringify(data));
         window.location.replace("/members");
         // If there's an error, log the error

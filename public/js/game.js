@@ -36,7 +36,6 @@ $(document).ready(() => {
     let author = json.quote.quoteAuthor;
     answers.push({authorName: author, answer: true});
     shuffled = answers.map((a) => [Math.random(), a]).sort((a, b) => a[0] - b[0]).map((a) => a[1]);
-    console.log(shuffled);
     $(".next").show(); //populates next button, author and potential answers all at the same time
     $("div.first").empty();
     $(".quote").text(quote);
@@ -54,9 +53,15 @@ $(document).ready(() => {
       let userAnswer = $("input[name = 'option']:checked").val(); //grabbing the value from the btn
       if (userAnswer === "true") {
         UserScore = UserScore + 5; //score
-        console.log("Correct answer: " + UserScore);
+        $(".correct").text("Correct");
+        setTimeout(() => {
+          $(".correct").text(" ");
+        }, 2000);
       } else {
-        console.log("Incorrect answer: " + UserScore);
+        $(".incorrect").text("Incorrect");
+        setTimeout(() => {
+          $(".incorrect").text(" ");
+        }, 2000);
       }
     }
     answers = [];
