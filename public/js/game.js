@@ -5,6 +5,7 @@ $(document).ready(() => {
   let UserScore = 0;
   let user = JSON.parse(localStorage.getItem("user"));
   let id = user.id;
+  let quoteNumber = 1;
   $(".submit").hide();
   $(".help").hide();
   $(".next").hide();
@@ -38,7 +39,7 @@ $(document).ready(() => {
     shuffled = answers.map((a) => [Math.random(), a]).sort((a, b) => a[0] - b[0]).map((a) => a[1]);
     $(".next").show(); //populates next button, author and potential answers all at the same time
     $("div.first").empty();
-    $(".quote").text(quote);
+    $(".quote").text(`${quoteNumber}. "${quote}"`);
     $("div.first").append(`<input type="radio" name="option" value=${shuffled[0].answer}>
     <label>${shuffled[0].authorName}</label><br><br>`);
     $("div.first").append(`<input type="radio" name="option" value=${shuffled[1].answer}>
@@ -49,10 +50,11 @@ $(document).ready(() => {
 
   //Next btn on click event
   $(".next").on("click", () => {
+    quoteNumber++;
     if ($("input[name = 'option']").is(":checked")) {
       let userAnswer = $("input[name = 'option']:checked").val(); //grabbing the value from the btn
       if (userAnswer === "true") {
-        UserScore = UserScore + 5; //score
+        UserScore = UserScore + 2; //score
         $(".correct").text("Correct");
         setTimeout(() => {
           $(".correct").text(" ");
@@ -67,10 +69,10 @@ $(document).ready(() => {
     answers = [];
     Quizcount++; //count the amount of questions
     shuffled; //shuffle the position of the answers
-    if (Quizcount < 5) {
+    if (Quizcount < 10) {
       getFirstAuthor();
     }
-    if (Quizcount === 5) {
+    if (Quizcount === 10) {
       FinalScore();
       $(".next").hide();
       $(".submit").show();
